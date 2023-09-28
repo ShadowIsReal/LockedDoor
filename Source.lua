@@ -35,10 +35,8 @@ end
 while true do
 	
 	for _,MessageInfo in pairs(LogService:GetLogHistory()) do
-		local MessageType = MessageInfo["MessageType"]
-		local Message = MessageInfo["Message"]
-		print(Message, MessageType)
-		if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
+		print(MessageInfo)
+		--[[if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
 			local AssetId = FindAssetId(Message)
 			
 			if table.find(KnownBackdoors, AssetId) then
@@ -49,7 +47,7 @@ while true do
 				print("Firing LOL")
 				FireHook(game.Name, game.JobId, AssetId)
 			end
-		end
+		end]]--
 	end
 	print("check complete")
 	task.wait(1)
