@@ -35,8 +35,8 @@ end
 while true do
 	
 	for i,MessageInfo in pairs(LogService:GetLogHistory()) do
-		for _,v in pairs(MessageInfo) do
-			print(v)
+		for i,v in pairs(MessageInfo) do
+			print(i)
 		end
 	end
 	print("check complete")
