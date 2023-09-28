@@ -5,7 +5,7 @@ local LogService = game.LogService
 local ReplicatedStorage = game.ReplicatedStorage
 local HttpService = game.HttpService
 
-local Webhook = ""
+local Webhook = nil
 local KnownBackdoors = {
 	
 }
