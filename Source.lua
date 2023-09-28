@@ -53,3 +53,5 @@ while true do
 	print("check complete")
 	task.wait(1)
 end
+
+print("Locked Door Loaded")
