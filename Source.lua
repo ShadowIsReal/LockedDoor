@@ -32,6 +32,8 @@ local function FindAssetId(Message)
 	return AssetId
 end
 
+print("Locked Door Loaded")
+
 local function OnConsoleMessage(Message : string, MessageType : Enum.MessageType)
 	if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
 		
