@@ -32,20 +32,24 @@ local function FindAssetId(Message)
 	return AssetId
 end
 
-local function OnConsoleMessage(Message : string, MessageType : Enum.MessageType)
-	if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
-		
-		local AssetId = FindAssetId(Message)
-		
-		if table.find(KnownBackdoors, AssetId) then
-			if Webhook then
-				FireHook(Webhook, game.Name, game.JobId, AssetId)
+while true do
+	
+	For _,MessageInfo in pairs(LogService:GetLogHistory()) do
+		local MessageType = MessageInfo["MessageType"]
+		local Message = MessageInfo["Message"]
+		if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
+			local AssetId = FindAssetId(Message)
+			
+			if table.find(KnownBackdoors, AssetId) then
+				if Webhook then
+					FireHook(Webhook, game.Name, game.JobId, AssetId)
+				end
+			elseif not table.find(WhitelistedRequires, AssetId) then
+				print("Firing LOL")
+				FireHook(game.Name, game.JobId, AssetId)
 			end
-		elseif not table.find(WhitelistedRequires, AssetId) then
-			print("Firing LOL")
-			FireHook(game.Name, game.JobId, AssetId)
 		end
 	end
+	
+	task.wait(1)
 end
-
-LogService.MessageOut:Connect(OnConsoleMessage)
