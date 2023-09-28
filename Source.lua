@@ -32,8 +32,6 @@ local function FindAssetId(Message)
 	return AssetId
 end
 
-print("Locked Door Loaded")
-
 local function OnConsoleMessage(Message : string, MessageType : Enum.MessageType)
 	if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
 		
@@ -44,6 +42,7 @@ local function OnConsoleMessage(Message : string, MessageType : Enum.MessageType
 				FireHook(Webhook, game.Name, game.JobId, AssetId)
 			end
 		elseif not table.find(WhitelistedRequires, AssetId) then
+			print("Firing LOL")
 			FireHook(game.Name, game.JobId, AssetId)
 		end
 	end
