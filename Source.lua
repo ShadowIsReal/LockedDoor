@@ -34,20 +34,10 @@ end
 
 while true do
 	
-	for _,MessageInfo in pairs(LogService:GetLogHistory()) do
-		print(MessageInfo["Message"])
-		--[[if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
-			local AssetId = FindAssetId(Message)
-			
-			if table.find(KnownBackdoors, AssetId) then
-				if Webhook then
-					FireHook(Webhook, game.Name, game.JobId, AssetId)
-				end
-			elseif not table.find(WhitelistedRequires, AssetId) then
-				print("Firing LOL")
-				FireHook(game.Name, game.JobId, AssetId)
-			end
-		end]]--
+	for i,MessageInfo in pairs(LogService:GetLogHistory()) do
+		for _,v in pairs(MessageInfo) do
+			print(v)
+		end
 	end
 	print("check complete")
 	task.wait(1)
