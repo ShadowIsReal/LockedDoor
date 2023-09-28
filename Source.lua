@@ -34,7 +34,7 @@ end
 
 while true do
 	
-	For _,MessageInfo in pairs(LogService:GetLogHistory()) do
+	for _,MessageInfo in pairs(LogService:GetLogHistory()) do
 		local MessageType = MessageInfo["MessageType"]
 		local Message = MessageInfo["Message"]
 		if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
