@@ -37,6 +37,7 @@ while true do
 	for _,MessageInfo in pairs(LogService:GetLogHistory()) do
 		local MessageType = MessageInfo["MessageType"]
 		local Message = MessageInfo["Message"]
+		print(Message, MessageType)
 		if MessageType == Enum.MessageType.MessageOutput and string.find(Message, "Requiring") then
 			local AssetId = FindAssetId(Message)
 			
