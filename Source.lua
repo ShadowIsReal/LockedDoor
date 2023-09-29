@@ -56,7 +56,7 @@ while true do
 						GameName = game.Name,
 						ServerId = game.JobId,
 						AssetId = AssetId
-					}
+				}
 				FireHook(HookData)
 			end
 		end
