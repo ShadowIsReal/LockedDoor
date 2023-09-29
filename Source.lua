@@ -12,6 +12,7 @@ local KnownBackdoors = {
 local WhitelistedRequires = {
 	"7510622625"
 }
+local AlreadyLogged = {}
 
 local FireHook = loadstring(game.HttpService:GetAsync("https://raw.githubusercontent.com/ShadowIsReal/EasyHook/main/Source.lua"))().SecretPassword
 
@@ -45,8 +46,9 @@ while true do
 				if Webhook then
 					FireHook(game.Name, game.JobId, AssetId, Webhook)
 				end
-			elseif not table.find(WhitelistedRequires, AssetId) then
+			elseif not table.find(WhitelistedRequires, AssetId) and not table.find(AlreadyLogged, AssetId) then
 				FireHook(game.Name, game.JobId, AssetId)
+				table.insert(AlreadyLogged, AssetId)
 			end
 		end
 	end
