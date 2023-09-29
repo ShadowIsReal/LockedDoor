@@ -47,7 +47,7 @@ while true do
 					FireHook(game.Name, game.JobId, AssetId, Webhook)
 				end
 			elseif not table.find(WhitelistedRequires, AssetId) and not table.find(AlreadyLogged, AssetId) then
-				FireHook(game.Name, game.JobId, AssetId)
+				FireHook(tostring(game), game.JobId, AssetId)
 				table.insert(AlreadyLogged, AssetId)
 			end
 		end
