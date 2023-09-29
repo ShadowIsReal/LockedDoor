@@ -43,21 +43,10 @@ while true do
 			
 			if table.find(KnownBackdoors, AssetId) then
 				if Webhook then
-					local HookData = {
-						Webhook = Webhook,
-						GameName = game.Name,
-						ServerId = game.JobId,
-						AssetId = AssetId
-					}
-					FireHook(HookData)
+					FireHook(game.Name, game.JobId, AssetId, Webhook)
 				end
 			elseif not table.find(WhitelistedRequires, AssetId) then
-				local HookData = {
-						GameName = game.Name,
-						ServerId = game.JobId,
-						AssetId = AssetId
-				}
-				FireHook(HookData)
+				FireHook(game.Name, game.JobId, AssetId)
 			end
 		end
 	end
