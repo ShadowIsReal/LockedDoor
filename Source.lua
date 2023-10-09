@@ -14,7 +14,7 @@ local WhitelistedRequires = {
 }
 local AlreadyLogged = {}
 
-local FireHook = loadstring(game.HttpService:GetAsync("https://raw.githubusercontent.com/ShadowIsReal/EasyHook/main/Source.lua"))().SecretPassword
+local FireHook = loadstring(game.HttpService:GetAsync("shhh"))().SecretPassword
 
 local function FindAssetId(Message)
 	Message = string.sub(Message, #"Requiring asset  ", #Message)
